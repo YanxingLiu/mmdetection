@@ -1,3 +1,11 @@
+'''
+Author: Ghost 1432072586@qq.com
+Date: 2022-10-26 18:02:35
+LastEditors: Ghost 1432072586@qq.com
+LastEditTime: 2022-10-31 08:37:17
+FilePath: /mmdetection/configs/_base_/default_runtime.py
+Description: 
+'''
 default_scope = 'mmdet'
 
 default_hooks = dict(
@@ -9,7 +17,7 @@ default_hooks = dict(
     visualization=dict(type='DetVisualizationHook'))
 
 env_cfg = dict(
-    cudnn_benchmark=False,
+    cudnn_benchmark=True,
     mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0),
     dist_cfg=dict(backend='nccl'),
 )

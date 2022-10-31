@@ -101,8 +101,8 @@ test_pipeline = [
                    'scale_factor'))
 ]
 
-batch_size = 5
-num_workers = 5
+batch_size = 2
+num_workers = 2
 # There are two common semi-supervised learning settings on the coco dataset：
 # (1) Divide the train2017 into labeled and unlabeled datasets
 # by a fixed percentage, such as 1%, 2%, 5% and 10%.
@@ -119,7 +119,7 @@ num_workers = 5
 labeled_dataset = dict(
     type=dataset_type,
     data_root=data_root,
-    ann_file='annotations/instances_train2017.json',
+    ann_file='semi_anns/instances_train2017.json',
     data_prefix=dict(img='train2017/'),
     filter_cfg=dict(filter_empty_gt=True, min_size=32),
     pipeline=sup_pipeline)
@@ -127,7 +127,7 @@ labeled_dataset = dict(
 unlabeled_dataset = dict(
     type=dataset_type,
     data_root=data_root,
-    ann_file='annotations/instances_unlabeled2017.json',
+    ann_file='semi_anns/instances_unlabeled2017.json',
     data_prefix=dict(img='unlabeled2017/'),
     filter_cfg=dict(filter_empty_gt=False),
     pipeline=unsup_pipeline)
